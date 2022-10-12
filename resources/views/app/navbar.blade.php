@@ -8,17 +8,17 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
-            <a href="Home.html" class="nav-item nav-link">Home</a>
-            <a href="about.html" class="nav-item nav-link">About</a>
-            <a href="courses.html" class="nav-item nav-link">Courses</a>
+            <a href="{{ url('/') }}" class="nav-item nav-link">Home</a>
+            <a href="{{ url('/about') }}" class="nav-item nav-link">About</a>
+            <a href="{{ url('/courses') }}" class="nav-item nav-link">Courses</a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Login</a>
                 <div class="dropdown-menu bg-light m-0">
-                    <a href="login.html" class="dropdown-item">Sign In</a>
-                    <a href="signup.html" class="dropdown-item">Sign Up</a>
+                    <a href="{{ url('/login') }}" class="dropdown-item">Sign In</a>
+                    <a href="{{ url('/signup') }}" class="dropdown-item">Sign Up</a>
                 </div>
             </div>
-            <a href="contact.html" class="nav-item nav-link">Contact</a>
+            <a href="{{ url('/contact') }}" class="nav-item nav-link">Contact</a>
         </div>
     </div>
 </nav>

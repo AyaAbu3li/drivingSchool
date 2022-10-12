@@ -40,7 +40,7 @@
                             </div>
                             <div class="col-12">
                                 <h5 class="mb-4">Have already an account?
-                                    <a href="login.html" class="mb-4" style="text-decoration: none;">Login here.</a></h5>
+                                    <a href="{{ url('/login') }}" class="mb-4" style="text-decoration: none;">Login here.</a></h5>
                             </div>
                         </div>
                     </form>

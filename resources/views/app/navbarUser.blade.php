@@ -19,7 +19,7 @@
                 </div>
             </div>
             <a href="exams.html" class="nav-item nav-link">exams</a>
-            <a href="../Out/Home.html" class="nav-item nav-link">LogOut</a>
+            <a href="{{ url('/') }}" class="nav-item nav-link">LogOut</a>
         </div>
     </div>
 </nav>

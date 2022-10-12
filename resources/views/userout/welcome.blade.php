@@ -12,8 +12,8 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-7">
                                     <h1 class="display-2 text-light mb-5 animated slideInDown">Learn To Drive With Confidence</h1>
-                                    <a href="about.blade.php" class="btn btn-primary py-sm-3 px-sm-5">Learn More</a>
-                                    <a href="{{ URL::to('courses') }}" class="btn btn-light py-sm-3 px-sm-5 ms-3">Our Courses</a>
+                                    <a href="{{ url('/about') }}" class="btn btn-primary py-sm-3 px-sm-5">Learn More</a>
+                                    <a href="{{ url('/courses') }}" class="btn btn-light py-sm-3 px-sm-5 ms-3">Our Courses</a>
                                 </div>
                             </div>
                         </div>
@@ -26,8 +26,8 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-7">
                                     <h1 class="display-2 text-light mb-5 animated slideInDown">Safe Driving Is Our Top Priority</h1>
-                                    <a href="about.html" class="btn btn-primary py-sm-3 px-sm-5">Learn More</a>
-                                    <a href="courses.html" class="btn btn-light py-sm-3 px-sm-5 ms-3">Our Courses</a>
+                                    <a href="{{ url('/about') }}" class="btn btn-primary py-sm-3 px-sm-5">Learn More</a>
+                                    <a href="{{ url('/courses') }}" class="btn btn-light py-sm-3 px-sm-5 ms-3">Our Courses</a>
                                 </div>
                             </div>
                         </div>
