@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Requests;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-
+use App\Models\courses;
 class coursesController extends Controller
 {
     /**
@@ -13,7 +16,9 @@ class coursesController extends Controller
      */
     public function index()
     {
-        return view('userout/courses');
+        $courses = DB::select('select * from courses');
+        return view('userout/courses',['courses'=>$courses]);
+        // return view('userout/courses');
 
     }
 

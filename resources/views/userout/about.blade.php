@@ -4,13 +4,6 @@
     <div class="container-fluid page-header py-6 my-6 mt-0 wow fadeIn">
         <div class="container text-center">
             <h1 class="display-4 text-white animated slideInDown mb-4">About Us</h1>
-            <nav aria-label="breadcrumb animated slideInDown">
-                <ol class="breadcrumb justify-content-center mb-0">
-                    <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                    <li class="breadcrumb-item text-primary active" aria-current="page">About</li>
-                </ol>
-            </nav>
         </div>
     </div>
     <!-- Page Header End -->
@@ -66,39 +59,44 @@
     </div>
     <!-- About End -->
 
-    <!-- Team Start -->
-    <div class="container-xxl py-6">
-        <div class="container">
-            <div class="text-center mx-auto mb-5 wow fadeInUp" style="max-width: 500px;">
-                <h6 class="text-primary text-uppercase mb-2">Meet The Team</h6>
-                <h1 class="display-6 mb-4">We Have Great Experience Of Driving</h1>
-            </div>
+<!-- Team Start -->
+<div class="container-xxl py-6">
+    <div class="container">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" style="max-width: 500px;">
+            <h6 class="text-primary text-uppercase mb-2">Meet The Team</h6>
+            <h1 class="display-6 mb-4">We Have Great Experience Of Driving</h1>
+        </div>
 
-            <div class="row g-0 team-items">
-                
-                
-                <!--          loop here         -->
-                <div class="col-lg-3 col-md-6 wow fadeInUp">
-                    <div class="team-item position-relative">
-                        <div class="position-relative">
-                            <img class="img-fluid" src="{{  asset("assets/img/team-1.jpg")  }}" alt="">
-                            <div class="team-social text-center">
-                                <a class="btn btn-square btn-outline-primary border-2 m-1" href=""><i class="fab fa-facebook-f"></i></a>
-                                <a class="btn btn-square btn-outline-primary border-2 m-1" href=""><i class="fab fa-twitter"></i></a>
-                                <a class="btn btn-square btn-outline-primary border-2 m-1" href=""><i class="fab fa-instagram"></i></a>
-                            </div>
-                        </div>
-                        <div class="bg-light text-center p-4">
-                            <h5 class="mt-2">Full Name</h5>
-                            <span>Trainer</span>
+        <div class="row g-0 team-items justify-content-center">
+            
+            
+            <!--          loop here         -->
+            @foreach ($team as $one)
+
+            <div class="col-lg-3 col-md-6 wow fadeInUp">
+                <div class="team-item position-relative">
+                    <div class="position-relative">
+                        <img class="img-fluid" src="{{  asset($one->img)  }}" alt="">
+                        {{-- style="  width: auto;   max-height: 310px;"> --}}
+                        <div class="team-social text-center">
+                            <a class="btn btn-square btn-outline-primary border-2 m-1" href=""><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-square btn-outline-primary border-2 m-1" href=""><i class="fab fa-twitter"></i></a>
+                            <a class="btn btn-square btn-outline-primary border-2 m-1" href=""><i class="fab fa-instagram"></i></a>
                         </div>
                     </div>
+                    <div class="bg-light text-center p-4">
+                        <h5 class="mt-2">{{ $one->name }}</h5>
+                        <span>Trainer</span>
+                    </div>
                 </div>
-                
             </div>
+            
+            @endforeach
+
         </div>
     </div>
-    <!-- Team End -->
+</div>
+<!-- Team End -->
 
 
 

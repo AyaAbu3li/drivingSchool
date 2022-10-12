@@ -26,26 +26,22 @@
             <div class="row g-4 justify-content-center">
                 
 <!--                loop here-->
+                @foreach ($courses as $one)
+
                 <div class="col-lg-4 col-md-6 wow fadeInUp">
                     <div class="courses-item d-flex flex-column bg-light overflow-hidden h-100">
                         <div class="text-center p-4 pt-0">
-                            <div class="d-inline-block bg-primary text-white fs-5 py-1 px-4 mb-4">$99</div>
-                            <h5 class="mb-3">Automatic Car Lessons</h5>
-                            <p>Tempor erat elitr rebum at clita dolor diam ipsum sit diam amet diam et eos</p>
-                            <ol class="breadcrumb justify-content-center mb-0">
-                                <li class="breadcrumb-item small"><i class="fa fa-signal text-primary me-2"></i>Beginner</li>
-                                <li class="breadcrumb-item small"><i class="fa fa-calendar-alt text-primary me-2"></i>3 Week</li>
-                            </ol>
+                            <div class="d-inline-block bg-primary text-white fs-5 py-1 px-4 mb-4">${{ $one->price }}</div>
+                            <h5 class="mb-3">{{ $one->name }}</h5>
                         </div>
-                        <div class="position-relative mt-auto">
-                            <img class="img-fluid" src="{{  asset("assets/img/courses-1.jpg")  }}" alt="">
-                            <div class="courses-overlay">
-                                <a class="btn btn-outline-primary border-2" href="">Read More</a>
-                            </div>
+                        <div class="text-center mt-auto"
+                        style="background-color: #1064e4 !important;">
+                            <img class="img-fluid" src="{{  asset($one->img)  }}" alt="">
                         </div>
                     </div>
                 </div>
-              
+                @endforeach
+
             </div>
         </div>
     </div>
