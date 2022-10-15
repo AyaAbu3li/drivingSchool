@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\contactMail;
+use Exception;
 
 class contactController extends Controller
 {
@@ -16,6 +19,23 @@ class contactController extends Controller
         return view('userout/contact');
 
     }
+
+    public function sendEmail(Request $request){
+
+        $data=[
+            'name' => $request->name,
+            'email' => $request->email,
+            'subject' => $request->subject,
+            'message' => $request->message,
+            ];
+            try{
+                Mail::to('aya.angel9099@gmail.com')->send(new contactMail($data));
+                return back()->with('message_sent','Your Message has been sent successfully!');
+            } catch (Exception $th){
+                return back()->with('message_sent','Your Message can not be send!');
+            }
+    }
+    
 
     /**
      * Show the form for creating a new resource.

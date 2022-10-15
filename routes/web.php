@@ -22,7 +22,9 @@ Route::get('/about',[aboutController::class,'index']);
 Route::get('/courses',[coursesController::class,'index']);
 Route::get('/login',[LoginController::class,'index']);
 Route::get('/signup',[signupController::class,'index']);
+
 Route::get('/contact',[contactController::class,'index']);
+Route::post('contact',[contactController::class,'sendEmail'])->name('contact');
 
 // Fallback Route
 Route::fallback(FallbackController::class);
