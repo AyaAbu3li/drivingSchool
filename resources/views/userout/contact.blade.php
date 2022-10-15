@@ -35,6 +35,10 @@
                         <div class="alert alert-success">
                         {{ Session :: get('message_sent') }}
                         </div>
+                        @elseif (Session :: has('message_not_sent'))
+                        <div class="alert alert-danger">
+                            {{ Session :: get('message_not_sent') }}
+                            </div>
                     @endif
                 <form method="POST" action="{{ route('contact') }}">
                     @csrf

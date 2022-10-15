@@ -32,7 +32,7 @@ class contactController extends Controller
                 Mail::to('aya.angel9099@gmail.com')->send(new contactMail($data));
                 return back()->with('message_sent','Your Message has been sent successfully!');
             } catch (Exception $th){
-                return back()->with('message_sent','Your Message can not be send!');
+                return back()->with('message_not_sent','Your Message can not be send!');
             }
     }
     

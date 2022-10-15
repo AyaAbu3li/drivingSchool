@@ -7,7 +7,7 @@
 <title>Contact us</title>
 </head>
 <body>
-<h1>my name is: {{ $data['name'] }}</h1>
+<h2>my name is: {{ $data['name'] }}</h1>
 <h2>my email is: <br> {{ $data['email'] }}</h2>
 <h3>my message is: <br> {{ $data['message'] }}</h2>
 </body>
