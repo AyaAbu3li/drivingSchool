@@ -9,16 +9,16 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
-            <a href="Home.html" class="nav-item nav-link">Home</a>
-            <a href="roadsafety.html" class="nav-item nav-link ">Road Safety</a>
+            <a href="{{ url('/in') }}" class="nav-item nav-link">Home</a>
+            <a href="{{ url('/roadsafety') }}" class="nav-item nav-link ">Road Safety</a>
             <div class="nav-item dropdown">
                 <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Study</a>
                 <div class="dropdown-menu bg-light m-0">
-                    <a href="Book.html" class="dropdown-item">Book</a>
-                    <a href="signsAndSignals.html" class="dropdown-item">Signs and Signals</a>
+                    <a href="{{ url('/Book') }}" class="dropdown-item">Book</a>
+                    <a href="{{ url('/signsAndSignals') }}" class="dropdown-item">Signs and Signals</a>
                 </div>
             </div>
-            <a href="exams.html" class="nav-item nav-link">exams</a>
+            <a href="{{ url('/exams') }}" class="nav-item nav-link">exams</a>
             <a href="{{ url('/') }}" class="nav-item nav-link">LogOut</a>
         </div>
     </div>
