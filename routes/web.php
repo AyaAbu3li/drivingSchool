@@ -18,6 +18,23 @@ Route::get('/in', function () {
     return view('in/home');
 });
 
+Route::get('/signsAndSignals', function () {
+    return view('in/signsAndSignals');
+});
+Route::get('/Book', function () {
+    return view('in/Book');
+});
+
+Route::get('/roadsafety', function () {
+    return view('in/roadsafety');
+});
+
+Route::get('/exams', function () {
+    return view('in/exams');
+});
+
+
+
 Route::get('/about',[aboutController::class,'index']);
 Route::get('/courses',[coursesController::class,'index']);
 Route::get('/login',[LoginController::class,'index']);
