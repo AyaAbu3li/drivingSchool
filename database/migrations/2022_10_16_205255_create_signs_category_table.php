@@ -13,11 +13,9 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('signs_and_signals', function (Blueprint $table) {
+        Schema::create('signs_category', function (Blueprint $table) {
             $table->id();
             $table->string('sectionName');
-            $table->string('signName');
-            $table->string('img');
             $table->timestamps();
         });
     }
@@ -29,6 +27,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('signs_and_signals');
+        Schema::dropIfExists('category');
     }
 };

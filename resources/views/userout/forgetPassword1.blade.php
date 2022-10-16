@@ -9,24 +9,28 @@
                 <div class="bg-primary text-center p-5"
                      style="background-color:white !important;">
                     <h3 class="mb-4">Forget Password</h3>
-                    <form>
-                        <div class="row g-3">
-                            <div class="col-12">
-                                        <div class="alert-danger alert">
-                                            <ul class="my-0 list-unstyled">
-                                                <li>
-                                                    The Email address dose not exist
-                                                </li>
-                                            </ul>
-                                        </div>
-                            </div>
+
+                    @if(Session :: has('message_sent'))
+                    <div class="alert alert-success">
+                    {{ Session :: get('message_sent') }}
+                    </div>
+                    @elseif (Session :: has('message_not_sent'))
+                    <div class="alert alert-danger">
+                        {{ Session :: get('message_not_sent') }}
+                        </div>
+                @endif
+            <form method="POST" action="{{ route('forgetPass') }}">
+                @csrf
+
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control border-0 bg-light" id="gmail" placeholder="Gurdian Email">
+                                    <input type="email" class="form-control border-0 bg-light"
+                                    id="gmail" placeholder="Gurdian Email" name="email"
+                                    value="{{ old('email') }}">
                                     <label for="gmail">Enter Email address</label>
                                 </div>
                             </div>
-
+<br>
                             <div class="col-12">
                                 <button class="btn btn-primary w-100 py-3" type="submit">Continue</button>
                             </div>

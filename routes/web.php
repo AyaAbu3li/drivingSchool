@@ -8,7 +8,7 @@ use App\Http\Controllers\signupController;
 use App\Http\Controllers\contactController;
 use App\Http\Controllers\FallbackController;
 use App\Http\Controllers\LogoutController;
-
+use App\Http\Controllers\forgetPassword;
 
 Route::get('/', function () {
     return view('userout/welcome');
@@ -33,6 +33,10 @@ Route::get('/exams', function () {
     return view('in/exams');
 });
 
+
+
+Route::get('/forgetPassword1',[forgetPassword::class,'index']);
+Route::post('forgetPass',[forgetPassword::class,'forgetPass'])->name('forgetPass');
 
 Route::get('/about',[aboutController::class,'index']);
 Route::get('/courses',[coursesController::class,'index']);
