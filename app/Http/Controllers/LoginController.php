@@ -3,6 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
+
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 
 class LoginController extends Controller
 {
@@ -15,6 +21,23 @@ class LoginController extends Controller
     public function index()
     {
         return view('userout/login');
+    }
+    
+    public function login(Request $request)
+    {
+
+        $user = User::where('email', '=', $request->email)->first();
+        if ($user === null) {
+            return back()->with('message_not_sent','This account does not exit.');
+        }
+
+        if ( Hash::check($request->password, $user->password)) {
+            if($user->role === 0)
+            return view('in/home');
+            else return view('in/roadsafety');
+            
+        }else return back()->with('message_not_sent','The password is not correct');
+       
     }
 
     /**
