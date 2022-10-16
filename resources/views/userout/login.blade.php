@@ -9,17 +9,31 @@
                 <div class="bg-primary text-center p-5"
                      style="background-color:white !important;">
                     <h3 class="mb-4">Please login to your account</h3>
-                    <form>
+
+                    @if(Session :: has('message_sent'))
+                    <div class="alert alert-success">
+                    {{ Session :: get('message_sent') }}
+                    </div>
+                    @elseif (Session :: has('message_not_sent'))
+                    <div class="alert alert-danger">
+                        {{ Session :: get('message_not_sent') }}
+                        </div>
+                @endif
+                
+                <form method="POST" action="{{ route('login') }}">
+                    @csrf
                         <div class="row g-3">
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control border-0 bg-light"  id="gmail" placeholder="Gurdian Email">
+                                    <input type="email" class="form-control border-0 bg-light"
+                                    id="gmail" placeholder="Gurdian Email" name="email">
                                     <label for="gmail">Email address</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="password" class="form-control border-0 bg-light" id="password" placeholder="password">
+                                    <input type="password" class="form-control border-0 bg-light"
+                                    id="password" placeholder="password" name="password">
                                     <label for="password">Password</label>
                                 </div>
                             </div>
@@ -41,6 +55,5 @@
     </div>
 </div>
 <!-- Login End -->
-
 
 @include("app.footer")

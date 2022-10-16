@@ -8,7 +8,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
         <div class="navbar-nav ms-auto p-4 p-lg-0">
-            {{-- @guest --}}
+            @guest
             <a href="{{ url('/') }}" class="nav-item nav-link">Home</a>
             <a href="{{ url('/about') }}" class="nav-item nav-link">About</a>
             <a href="{{ url('/courses') }}" class="nav-item nav-link">Courses</a>
@@ -20,7 +20,7 @@
                 </div>
             </div>
             <a href="{{ url('/contact') }}" class="nav-item nav-link">Contact</a>
-            {{-- @else
+            @else
             <a href="{{ url('/in') }}" class="nav-item nav-link">Home</a>
             <a href="{{ url('/roadsafety') }}" class="nav-item nav-link">Road Safety</a>
             <div class="nav-item dropdown">
@@ -31,9 +31,10 @@
                 </div>
             </div>
             <a href="{{ url('/exams') }}" class="nav-item nav-link">exams</a>
-            <a href="{{ url('/') }}" class="nav-item nav-link">LogOut</a>
-            @endguest --}}
+            <a href="{{ route('logout') }}" class="nav-item nav-link">LogOut</a>
+            @endguest
         </div>
     </div>
 </nav>
 <!-- Navbar End -->
+@yield('content')

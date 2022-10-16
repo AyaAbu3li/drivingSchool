@@ -1,7 +1,6 @@
 @include('app.header') 
 @include('app.navbarUser') 
 
-
     <!-- Carousel Start -->
     <div class="container-fluid p-0 wow fadeIn">
         <div id="header-carousel" class="carousel slide" data-bs-ride="carousel">
@@ -45,5 +44,4 @@
         </div>
     </div>
     <!-- Carousel End -->
-
 @include("app.footer")
