@@ -30,7 +30,13 @@ class SignupController extends Controller
      */
     public function create(Request $request)
     {
-
+        if(empty($request->input('email')) 
+        or (empty($request->input('password'))) 
+        or (empty($request->input('password1'))) 
+        or (empty($request->input('name'))) 
+        ){
+           return back()->with('message_not_sent','inputs are empty!');
+       } 
         if (User::where('email', '=', $request->email)->exists()) {
             return back()->with('message_not_sent','Email already exits');
         }

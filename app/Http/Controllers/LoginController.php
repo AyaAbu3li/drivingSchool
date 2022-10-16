@@ -25,7 +25,11 @@ class LoginController extends Controller
     
     public function login(Request $request)
     {
-
+        if(empty($request->input('email')) 
+         or (empty($request->input('password')))) {
+            return back()->with('message_not_sent','inputs are empty!');
+        } 
+        
         $user = User::where('email', '=', $request->email)->first();
         if ($user === null) {
             return back()->with('message_not_sent','This account does not exit.');

@@ -1,5 +1,5 @@
 @include('app.header') 
-@include('app.navbarUser') 
+@include('app.navbar') 
 
 <!-- Page Header Start -->
 <div class="container-fluid page-header py-6 my-6 mt-0 wow fadeIn">

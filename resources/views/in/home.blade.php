@@ -1,5 +1,5 @@
 @include('app.header') 
-@include('app.navbarUser') 
+@include('app.navbar') 
 
     <!-- Carousel Start -->
     <div class="container-fluid p-0 wow fadeIn">
