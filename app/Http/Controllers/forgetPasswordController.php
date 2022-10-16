@@ -12,7 +12,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 
 
-class forgetPassword extends Controller
+class forgetPasswordController extends Controller
 {
     public function index()
     {
@@ -28,7 +28,7 @@ class forgetPassword extends Controller
         if ($user === null) {
             return back()->with('message_not_sent', 'This account does not exit.');
         }
-          
+
         //Create Password Reset Token
         DB::table('password_resets')->insert([
             'email' => $request->email,
@@ -49,5 +49,14 @@ class forgetPassword extends Controller
         } catch (Exception $th) {
             return back()->with('message_not_sent', $th);
         }
+    }
+
+    public function checkCode(Request $request)
+    {
+
+    }
+    public function resetpassword(Request $request)
+    {
+        
     }
 }

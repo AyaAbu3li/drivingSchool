@@ -8,7 +8,7 @@ use App\Http\Controllers\signupController;
 use App\Http\Controllers\contactController;
 use App\Http\Controllers\FallbackController;
 use App\Http\Controllers\LogoutController;
-use App\Http\Controllers\forgetPassword;
+use App\Http\Controllers\forgetPasswordController;
 
 Route::get('/', function () {
     return view('userout/welcome');
@@ -35,8 +35,11 @@ Route::get('/exams', function () {
 
 
 
-Route::get('/forgetPassword1',[forgetPassword::class,'index']);
-Route::post('forgetPass',[forgetPassword::class,'forgetPass'])->name('forgetPass');
+Route::get('/forgetPassword1',[forgetPasswordController::class,'index']);
+Route::post('forgetPass',[forgetPasswordController::class,'forgetPass'])->name('forgetPass');
+Route::post('forgetPass2',[forgetPasswordController::class,'checkCode'])->name('forgetPass2');
+Route::post('resetpassword',[forgetPasswordController::class,'resetpassword'])->name('resetpassword');
+
 
 Route::get('/about',[aboutController::class,'index']);
 Route::get('/courses',[coursesController::class,'index']);

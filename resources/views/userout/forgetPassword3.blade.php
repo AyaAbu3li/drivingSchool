@@ -9,26 +9,31 @@
                 <div class="bg-primary text-center p-5"
                      style="background-color:white !important;">
                     <h3 class="mb-4">New Password</h3>
-                            <div class="col-12">
-                                <div class="alert-danger alert">
-                                    <ul class="my-0 list-unstyled">
-                                        <li>
-                                            The passwords dose not match
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                    <form>
+                            
+                    @if(Session :: has('message_sent'))
+                    <div class="alert alert-success">
+                    {{ Session :: get('message_sent') }}
+                    </div>
+                    @elseif (Session :: has('message_not_sent'))
+                    <div class="alert alert-danger">
+                        {{ Session :: get('message_not_sent') }}
+                        </div>
+                @endif
+            <form method="POST" action="{{ route('resetpassword') }}">
+                @csrf                    
+
                         <div class="row g-3">
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="password" class="form-control border-0 bg-light" id="password" placeholder="password">
+                                    <input type="password" class="form-control border-0 bg-light"
+                                     id="password" placeholder="password" name="password">
                                     <label for="password">Create New Password</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="password" class="form-control border-0 bg-light" id="password1" placeholder="password">
+                                    <input type="password" class="form-control border-0 bg-light"
+                                     id="password1" placeholder="password" name="password1">
                                     <label for="password1">Confirm Your Password</label>
                                 </div>
                             </div>

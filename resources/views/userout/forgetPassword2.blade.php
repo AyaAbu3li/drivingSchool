@@ -9,31 +9,23 @@
                 <div class="bg-primary text-center p-5"
                      style="background-color:white !important;">
                     <h3 class="mb-4">Code Verification</h3>
-                    <form>
-
-                        <div class="row g-3">
-                            <div class="col-12">
-                                <div class="alert-danger alert">
-                                    <ul class="my-0 list-unstyled">
-                                        <li>
-                                            Wrong Code
-                                        </li>
-                                    </ul>
-                                </div>
+                    
+                        @if(Session :: has('message_sent'))
+                        <div class="alert alert-success">
+                        {{ Session :: get('message_sent') }}
+                        </div>
+                        @elseif (Session :: has('message_not_sent'))
+                        <div class="alert alert-danger">
+                            {{ Session :: get('message_not_sent') }}
                             </div>
-                            <div class="col-12">
-                                <div class="alert-success alert">
-                                    <ul class="my-0 list-unstyled">
-                                        <li>
-                                            We have sent a password reset to your email
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
+                    @endif
+                <form method="POST" action="{{ route('forgetPass2') }}">
+                    @csrf
 
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control border-0 bg-light" id="code" placeholder="code">
+                                    <input type="text" class="form-control border-0 bg-light"
+                                     id="code" placeholder="code" name="code">
                                     <label for="code">Enter Code</label>
                                 </div>
                             </div>
