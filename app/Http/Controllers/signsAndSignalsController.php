@@ -6,7 +6,9 @@ use Illuminate\Http\Requests;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
-use App\Models\courses;
+use App\Models\signsAndSignals;
+
+
 class signsAndSignalsController extends Controller
 {
     /**
@@ -16,19 +18,21 @@ class signsAndSignalsController extends Controller
      */
     public function index()
     {
-        $sectionName = DB::select('select DISTINCT sectionName from signs_and_signals');
+        $sectionName = DB::select('select sectionName from signs_category');
 
-        $items = array();
-        foreach($sectionName as $Name) {
-        $items[] = $Name;
-}
-        for ($x = 0; $x < count($items); $x++) {
-
+        $data = array();
+        foreach ($sectionName as $Name) {
+            $si = $Name;
+            $results = DB::select(
+                'select * from signs_and_signals where sectionName = :id',
+                ['id' => $Name->sectionName]
+            );
+           $data[] = (array)$results;  
         }
-        $signs = DB::select('select * from signs_and_signals where');
 
-        return view('in/signsAndSignals',['signs'=>$signs],['sectionName'=>$sectionName]);
-        // return view('userout/courses');
+        return view('in/signsAndSignals',['sectionName'=> $sectionName
+        ,'data'=> $data
+        ]);
 
     }
 

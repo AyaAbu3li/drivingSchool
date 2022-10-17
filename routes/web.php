@@ -9,6 +9,8 @@ use App\Http\Controllers\contactController;
 use App\Http\Controllers\FallbackController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\forgetPasswordController;
+use App\Http\Controllers\signsAndSignalsController;
+
 
 Route::get('/', function () {
     return view('userout/welcome');
@@ -21,6 +23,10 @@ Route::get('/in', function () {
 Route::get('/signsAndSignals', function () {
     return view('in/signsAndSignals');
 });
+
+Route::get('/signsAndSignals',[signsAndSignalsController::class,'index']);
+
+
 Route::get('/Book', function () {
     return view('in/Book');
 });
@@ -37,7 +43,14 @@ Route::get('/exams', function () {
 
 Route::get('/forgetPassword1',[forgetPasswordController::class,'index']);
 Route::post('forgetPass',[forgetPasswordController::class,'forgetPass'])->name('forgetPass');
-Route::post('forgetPass2',[forgetPasswordController::class,'checkCode'])->name('forgetPass2');
+
+// Route::get('/forgetPassword2',[forgetPasswordController::class,'index2']);
+// Route::post('checkCode',[forgetPasswordController::class,'checkCode'])->name('checkCode');
+
+Route::get('/forgetPassword3',[forgetPasswordController::class,'index3']);
+Route::post('resetpassword',[forgetPasswordController::class,'resetpassword'])->name('resetpassword');
+
+Route::get('/forgetPassword3',[forgetPasswordController::class,'index3']);
 Route::post('resetpassword',[forgetPasswordController::class,'resetpassword'])->name('resetpassword');
 
 

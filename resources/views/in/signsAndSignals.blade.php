@@ -1,5 +1,5 @@
 @include('app.header') 
-@include('app.navbarUser') 
+@include('app.navbar') 
 
 <!-- Page Header Start -->
 <div class="container-fluid page-header py-6 my-6 mt-0 wow fadeIn">
@@ -18,13 +18,12 @@
     </div>
     <div class="row row-cols-3 text-center">
         <!-- loop0 here -->
+        @foreach ($sectionName as $Name)
 
-        <h5><a href="#id" class="col btn btn-primary w-100 py-3">Column</a></h5>
-        <h5><a href="" class="col btn btn-primary w-100 py-3">Column</a></h5>
-        <h5><a href="" class="col btn btn-primary w-100 py-3">Column</a></h5>
-        <h5><a href="" class="col btn btn-primary w-100 py-3">Column</a></h5>
-        <h5><a href="" class="col btn btn-primary w-100 py-3">Column</a></h5>
-        <h5><a href="" class="col btn btn-primary w-100 py-3">Column</a></h5>
+        <h5><a href="#{{ $Name->sectionName }}" class="col btn btn-primary w-100 py-3">{{ $Name->sectionName }}</a></h5>
+       
+        @endforeach
+
     </div>
 
 </div>
@@ -33,31 +32,39 @@
 </div>
 
 <!-- loop1 here -->
-<div class="container-xxl py-10">
+@foreach ($sectionName as $Name)
+<div class="container-xxl py-10" id="{{ $Name->sectionName }}" >
     <div class="container">
         <div class="row g-4 justify-content-center" >
             <div class="col-lg-10 my-6 mb-0 wow fadeInUp">
                 <div class="text-center mx-auto mb-5 wow fadeInUp" style="max-width: 500px;">
-                    <h5 class="text-primary text-uppercase mb-2">Section:-</h5>
+                    <h5 
+                        class="text-primary text-uppercase mb-2">Section: {{ $Name->sectionName }}</h5>
                 </div>
 
                 <div class="row row-cols-3 text-center">
                     <!-- loop2 here -->
+                    @foreach ($data as $sign) 
+                    @foreach ($sign as $signn)
+                    @if ($signn->sectionName != $Name->sectionName) @break @endif
                     <div class="team-item position-relative" id="id">
                         <div class="position-relative">
                             <img class="img-fluid rounded-start" src="../images/SignAndSignal5.jpg" alt=""
                                  style="  width: auto;   max-height: 120px;">
                         </div>
                         <div class="bg-light text-center p-4">
-                            <h5 class="mt-2">Full Name</h5>
+                            <h5 class="mt-2"> {{ $signn->signName }}</h5>
                         </div>
                     </div>
+                    @endforeach
+                    @endforeach
 
                 </div>
              </div>
         </div>
     </div>
 </div>
-
+{{-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> --}}
+@endforeach
 
 @include("app.footer")
