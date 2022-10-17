@@ -63,7 +63,6 @@
         </div>
     </div>
 </div>
-{{-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> --}}
 @endforeach
 
 @include("app.footer")

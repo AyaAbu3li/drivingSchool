@@ -29,3 +29,31 @@ class passwordMail extends Mailable
 
     }
 }
+
+
+// class passwordMail extends Mailable
+// {
+//     use Queueable, SerializesModels;
+
+//     public $datalis;
+//     // private $data = [];
+//     private $link;
+
+//     public function __construct(
+//         // $data,
+//          $link)
+//     {
+//         // $this->data = $data;
+//         $this->link = $link;
+//     }
+
+//     public function build()
+//     {
+
+//         return $this->from($this->data['email'], 'Driving School')
+//             ->subject('Reset Password')
+//             ->view('email.passwordMail')->
+//             with('link', $this->link);
+
+//     }
+// }

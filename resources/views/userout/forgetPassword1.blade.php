@@ -30,7 +30,7 @@
                                     <label for="gmail">Enter Email address</label>
                                 </div>
                             </div>
-<br>
+                            <br>
                             <div class="col-12">
                                 <button class="btn btn-primary w-100 py-3" type="submit">Continue</button>
                             </div>

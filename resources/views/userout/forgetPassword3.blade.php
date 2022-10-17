@@ -26,10 +26,11 @@
                             <div class="col-12">
                                 <div class="form-floating">
                                     <input type="password" class="form-control border-0 bg-light"
-                                     id="password" placeholder="password" name="password">
+                                     id="password" placeholder="password" name="password" >
                                     <label for="password">Create New Password</label>
                                 </div>
                             </div>
+                            <br>
                             <div class="col-12">
                                 <div class="form-floating">
                                     <input type="password" class="form-control border-0 bg-light"

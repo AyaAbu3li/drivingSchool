@@ -25,11 +25,8 @@ class ExamsController extends Controller
             );
         //    $data[] = (array)$results;  
         // }
-
-        return view('in/exams2',['data'=> $results
-        ,'examType'=> $request->examType
-        ]
-    );
+dd($results);
+        // return view('in/exams2',['data'=> $results,'examType'=> $request->examType]);
 
     }
 }

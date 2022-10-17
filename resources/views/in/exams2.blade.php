@@ -26,6 +26,7 @@
                     <h4 class="text-primary mb-2">Timer</h4>
 
                     <div class="row row-cols-5 text-center">
+                        @foreach ($data as $ex) 
                         <button type="button" class="btn btn-primary exbutton">1</button>
                         <button type="button" class="btn btn-primary exbutton">2</button>
                         <button type="button" class="btn btn-primary exbutton">3</button>
@@ -36,6 +37,7 @@
                         <button type="button" class="btn btn-primary exbutton">8</button>
                         <button type="button" class="btn btn-primary exbutton">9</button>
                         <button type="button" class="btn btn-primary exbutton">10</button>
+                        @endforeach
                     </div>
                     <br>
                     <div class="row row-cols-2 text-center">

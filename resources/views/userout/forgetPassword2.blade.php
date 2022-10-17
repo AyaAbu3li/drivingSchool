@@ -19,7 +19,7 @@
                             {{ Session :: get('message_not_sent') }}
                             </div>
                     @endif
-                <form method="POST" action="{{ route('forgetPass2') }}">
+                <form method="POST" action="{{ route('checkCode') }}">
                     @csrf
 
                             <div class="col-12">
@@ -29,6 +29,7 @@
                                     <label for="code">Enter Code</label>
                                 </div>
                             </div>
+                            <br>
                             <div class="col-12">
                                 <button class="btn btn-primary w-100 py-3" type="submit">Continue</button>
                             </div>
