@@ -1,5 +1,5 @@
 @include('app.header') 
-@include('app.navbarUser') 
+@include('app.navbar') 
 
 
   <!-- 404 Start -->
