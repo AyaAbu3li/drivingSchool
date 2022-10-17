@@ -21,7 +21,6 @@ class signsAndSignalsController extends Controller
 
         $data = array();
         foreach ($sectionName as $Name) {
-            $si = $Name;
             $results = DB::select(
                 'select * from signs_and_signals where sectionName = :id',
                 ['id' => $Name->sectionName]

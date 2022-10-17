@@ -10,7 +10,7 @@ use App\Http\Controllers\FallbackController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\forgetPasswordController;
 use App\Http\Controllers\signsAndSignalsController;
-
+use App\Http\Controllers\ExamsController;
 
 Route::get('/', function () {
     return view('userout/welcome');
@@ -20,11 +20,12 @@ Route::get('/in', function () {
     return view('in/home');
 });
 
-Route::get('/signsAndSignals', function () {
-    return view('in/signsAndSignals');
-});
-
 Route::get('/signsAndSignals',[signsAndSignalsController::class,'index']);
+Route::get('/exams',[ExamsController::class,'index']);
+Route::post('exam',[ExamsController::class,'exam'])->name('exam');
+
+// Route::get('/exam',[ExamsController::class,'exam']);
+
 
 
 Route::get('/Book', function () {
@@ -33,10 +34,6 @@ Route::get('/Book', function () {
 
 Route::get('/roadsafety', function () {
     return view('in/roadsafety');
-});
-
-Route::get('/exams', function () {
-    return view('in/exams');
 });
 
 

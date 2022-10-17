@@ -10,31 +10,30 @@
 </div>
 <!-- Page Header End -->
 
+
 <div class="container-xxl py-10">
     <div class="container">
         <div class="row g-4 justify-content-center" >
             <div class="col-lg-10 my-6 mb-0 wow fadeInUp">
                 <div class="row row-cols-3 text-center">
                     <!-- loop0 here -->
-                    @foreach ($examType as $Type) 
+                    @foreach ($examType as $Type)
+                    <form method="POST" action="{{ route('exam') }}">
+                        @csrf
+                    <input type="text" value="{{ $Type->examType }}" name="examType" style="visibility: hidden;">
 
-                    <div class="team-item position-relative" onclick="location.href='{{ url(exam) }}';" id="smallbox">
-                        <div class="position-relative">
-                            <img class="img-fluid rounded-start" src="../images/SignAndSignal5.jpg" alt=""
-                                 style="  width: auto;   max-height: 120px;">
-                        </div>
-                        <div class="bg-light text-center p-4">
-                            <h5 class="mt-2"><a> {{ $Type->examType }}</a></h5>
-                        </div>
-                    </div>
-
+                    <h5><button type="submit"
+                         
+                         class="col btn btn-primary w-100 py-3">{{ $Type->examType }}</a></h5>
+                        </form>
                     @endforeach
+
                 </div>
+
             </div>
         </div>
     </div>
 </div>
-
 
 
 @include("app.footer")
