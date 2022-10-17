@@ -10,23 +10,25 @@
 </div>
 <!-- Page Header End -->
 
-<!-- loop1 here -->
 <div class="container-xxl py-10">
     <div class="container">
         <div class="row g-4 justify-content-center" >
             <div class="col-lg-10 my-6 mb-0 wow fadeInUp">
                 <div class="row row-cols-3 text-center">
-                    <!-- loop2 here -->
-                    <div class="team-item position-relative" onclick="location.href='exams2.html';" id="smallbox">
+                    <!-- loop0 here -->
+                    @foreach ($examType as $Type) 
+
+                    <div class="team-item position-relative" onclick="location.href='{{ url(exam) }}';" id="smallbox">
                         <div class="position-relative">
                             <img class="img-fluid rounded-start" src="../images/SignAndSignal5.jpg" alt=""
                                  style="  width: auto;   max-height: 120px;">
                         </div>
                         <div class="bg-light text-center p-4">
-                            <h5 class="mt-2"><a>Full Name</a></h5>
+                            <h5 class="mt-2"><a> {{ $Type->examType }}</a></h5>
                         </div>
                     </div>
 
+                    @endforeach
                 </div>
             </div>
         </div>
