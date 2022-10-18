@@ -14,58 +14,100 @@
     </div>
 </div>
 <!-- Page Header End -->
-
-
-
-<div class="container-xxl py-6" style="margin-top: -5rem;">
+    <script>
+        const cars = new Array();
+    </script>
+@foreach ($data as $ex)
+<div class="container-xxl py-6">
     <div class="container">
-        <div class="row g-5 justify-content-center">
-            <div class="col-lg-3 wow fadeInUp">
-                <div class="position-relative h-100">
-
-                    <h4 class="text-primary mb-2">Timer</h4>
-
-                    <div class="row row-cols-5 text-center">
-                        @foreach ($data as $ex) 
-                        <button type="button" class="btn btn-primary exbutton">1</button>
-                        <button type="button" class="btn btn-primary exbutton">2</button>
-                        <button type="button" class="btn btn-primary exbutton">3</button>
-                        <button type="button" class="btn btn-primary exbutton">4</button>
-                        <button type="button" class="btn btn-primary exbutton">5</button>
-                        <button type="button" class="btn btn-primary exbutton">6</button>
-                        <button type="button" class="btn btn-primary exbutton">7</button>
-                        <button type="button" class="btn btn-primary exbutton">8</button>
-                        <button type="button" class="btn btn-primary exbutton">9</button>
-                        <button type="button" class="btn btn-primary exbutton">10</button>
-                        @endforeach
-                    </div>
-                    <br>
-                    <div class="row row-cols-2 text-center">
-                        <h5><a href="exams3.html" class="col btn btn-primary">Back</a></h5>
-                        <h5><a href="exams3.html" class="col btn btn-primary">Next</a></h5>
-
-                    </div>
-
-                    </div>
-
-            </div>
-            <div class="col-lg-7 wow fadeInUp">
+        <div class="text-center mx-auto mb-5 wow fadeInUp" style="max-width: 500px;">
                 <div class="row row-cols-1 text-center">
-                    <!-- loop0 here -->
-                    {{-- <h4 class="text-primary mb-2">{{ $data->question }}</h4>
+                     <h4 class="text-primary mb-2">{{ $ex->question }}
+                        <br><br></h4> 
+                        <button type="button" class="btn btn-primary exbutton" 
+                        id="{{ $ex->answer1 }}" onclick="check('{{ $ex->answer1 }}','{{ $ex->correctAnswer }}',
+                        '{{ $ex->answer2 }}','{{ $ex->answer3 }}','{{ $ex->answer4 }}')">
+                           {{ $ex->answer1 }}
+                       </button>
+                        <button type="button" class="btn btn-primary exbutton"
+                        id="{{ $ex->answer2 }}" onclick="check('{{ $ex->answer2 }}','{{ $ex->correctAnswer }}',
+                        '{{ $ex->answer1 }}','{{ $ex->answer3 }}','{{ $ex->answer4 }}')">
+                           {{ $ex->answer2 }}
+                       </button>
+                        <button type="button" class="btn btn-primary exbutton"
+                        id="{{ $ex->answer3 }}" onclick="check('{{ $ex->answer3 }}','{{ $ex->correctAnswer }}',
+                        '{{ $ex->answer1 }}','{{ $ex->answer2 }}','{{ $ex->answer4 }}')">
+                           {{ $ex->answer3 }}
+                       </button>
+                       <button type="button" class="btn btn-primary exbutton"
+                       id="{{ $ex->answer4 }}" onclick="check('{{ $ex->answer4 }}','{{ $ex->correctAnswer }}',
+                       '{{ $ex->answer1 }}','{{ $ex->answer2 }}','{{ $ex->answer3 }}')">
+                           {{ $ex->answer4 }}
+                       </button>     
+            </div>
+        </div>      
+    </div>
+</div>
+<script>
+    // const cars = new Array();
+     function hi(){
+        window.alert(cars);
+     }
+    function check(value,answer,one,two,three){
+           if(value === answer){
+        cars.push(value);
+           }
+        const answer1 = document.getElementById(one);
+        const answer2 = document.getElementById(two);
+        const answer3 = document.getElementById(three);
+        const wrong = document.getElementById(value);
 
-                    <button type="button" class="btn btn-primary exbutton">{{ $data->answer1 }}</button>
-                    <button type="button" class="btn btn-primary exbutton">{{ $data->answer2 }}</button>
-                    <button type="button" class="btn btn-primary exbutton">{{ $data->answer3 }}</button>
-                    <button type="button" class="btn btn-primary exbutton">{{ $data->answer4 }}</button> --}}
+        answer1.disabled = true;
+        answer2.disabled = true;
+        answer3.disabled = true; 
+        wrong.disabled = true; //setting button state to disabled
 
+        const correct = document.getElementById(answer);
+        wrong.style.backgroundColor = 'red';
+        correct.style.backgroundColor = 'green';
 
+    }
+    
+ </script> 
+@endforeach
+
+<div class="container-xxl py-10">
+    <div class="container">
+        <div class="row g-4 justify-content-center" >
+            <div class="col-lg-10 my-6 mb-0 wow fadeInUp">
+                <div class="row row-cols-1 text-center">
+                <p id="demo" style="visibility: hidden;"></p>
                 </div>
+                <div class="row row-cols-3 text-center">
+                    
+                    <h5><a class="col btn btn-primary w-100 py-3" href="{{ url('/exams') }}">
+                       Back to Exams</a></h5>
 
+                    <h5><button class="col btn btn-primary w-100 py-3" onclick="showElem()"
+                        >View Results</button></h5>
+
+                    <form method="POST" action="{{ route('exam') }}">
+                        @csrf
+                        <h5><button type="submit" class="col btn btn-primary w-100 py-3">
+                            Try again</button></h5>
+                        <input type="text" value="{{ $examType }}" name="examType" style="visibility: hidden;">
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 </div>
 
+<script>
+function showElem() {
+    document.getElementById("demo").style.visibility = "visible"; 
+    document.getElementById("demo").innerHTML = cars.length+" questions you answered correctly";
+  }
+</script>
 
 @include("app.footer")
