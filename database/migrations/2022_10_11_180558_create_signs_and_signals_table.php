@@ -19,6 +19,8 @@ return new class extends Migration
             $table->string('signName');
             $table->string('img');
             $table->timestamps();
+            $table->foreign('sectionName')->references('sectionName')->on('signs_category');
+            
         });
     }
 
