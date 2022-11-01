@@ -23,6 +23,8 @@ return new class extends Migration
             $table->string('answer4');
             $table->string('correctAnswer');
             $table->timestamps();
+            $table->foreign('examType')->references('examType')->on('exams_category');
+
         });
     }
 
