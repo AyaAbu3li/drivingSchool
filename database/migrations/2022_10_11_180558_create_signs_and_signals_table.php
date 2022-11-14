@@ -15,11 +15,12 @@ return new class extends Migration
     {
         Schema::create('signs_and_signals', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('sectionID');
             $table->string('sectionName');
             $table->string('signName');
             $table->string('img');
             $table->timestamps();
-            $table->foreign('sectionName')->references('sectionName')->on('signs_category');
+            $table->foreign('sectionID')->references('id')->on('category')->onDelete('cascade');
 
         });
     }
