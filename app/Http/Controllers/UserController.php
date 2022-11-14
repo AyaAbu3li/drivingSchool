@@ -68,7 +68,7 @@ class LoginController extends Controller
             return back()->with('message_not_sent','Email already exits');
         }
         if($request->password != $request->password1){
-            return back()->with('message_not_sent','Passwords does not match');
+            return back()->with('message_not_sent','Passwords do not match');
         }
         $data=[
             'name' => $request->name,
