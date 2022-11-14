@@ -1,11 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\aboutController;
-use App\Http\Controllers\coursesController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\signupController;
-use App\Http\Controllers\contactController;
 use App\Http\Controllers\FallbackController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\forgetPasswordController;
@@ -51,8 +47,8 @@ Route::get('/forgetPassword3',[forgetPasswordController::class,'index3']);
 Route::post('resetpassword',[forgetPasswordController::class,'resetpassword'])->name('resetpassword');
 
 
-Route::get('/about',[aboutController::class,'index']);
-Route::get('/courses',[coursesController::class,'index']);
+Route::get('/about',[UserController::class,'about']);
+Route::get('/courses',[UserController::class,'courses']);
 
 Route::get('/login',[UserController::class,'signin']);
 Route::post('login',[UserController::class,'login'])->name('login');
@@ -61,8 +57,8 @@ Route::get('/signup',[UserController::class,'signup']);
 Route::post('signup',[UserController::class,'create'])->name('signup');
 
 
-Route::get('/contact',[contactController::class,'index']);
-Route::post('contact',[contactController::class,'sendEmail'])->name('contact');
+Route::get('/contact',[UserController::class,'contact']);
+Route::post('contact',[UserController::class,'sendEmail'])->name('contact');
 
 Route::get('logout', [LogoutController::class, 'logout'])->name('logout');
 

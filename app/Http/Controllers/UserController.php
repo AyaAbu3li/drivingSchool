@@ -5,19 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
-
+use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
-
+use Illuminate\Support\Facades\Mail;
+use App\Mail\contactMail;
+use Exception;
 class LoginController extends Controller
 {
-    
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function signin()
     {
         return view('userout/login');
@@ -90,5 +86,41 @@ class LoginController extends Controller
         'email' => $data['email'],
         'password' => Hash::make($data['password'])
       ]);
+    }
+
+    public function about()
+    {
+        $team = DB::select('select * from team');
+        return view('userout/about',['team'=>$team]);
+
+        // return view('userout/about');
+    }
+    public function courses()
+    {
+        $courses = DB::select('select * from courses');
+        return view('userout/courses',['courses'=>$courses]);
+        // return view('userout/courses');
+
+    }
+    public function contact()
+    {
+        return view('userout/contact');
+
+    }
+
+    public function sendEmail(Request $request){
+
+        $data=[
+            'name' => $request->name,
+            'email' => $request->email,
+            'subject' => $request->subject,
+            'message' => $request->message,
+            ];
+            try{
+                Mail::to('aya.angel9099@gmail.com')->send(new contactMail($data));
+                return back()->with('message_sent','Your Message has been sent successfully!');
+            } catch (Exception $th){
+                return back()->with('message_not_sent','Your Message can not be send!');
+            }
     }
 }
