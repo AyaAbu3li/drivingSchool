@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\aboutController;
 use App\Http\Controllers\coursesController;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\signupController;
 use App\Http\Controllers\contactController;
 use App\Http\Controllers\FallbackController;
@@ -54,11 +54,11 @@ Route::post('resetpassword',[forgetPasswordController::class,'resetpassword'])->
 Route::get('/about',[aboutController::class,'index']);
 Route::get('/courses',[coursesController::class,'index']);
 
-Route::get('/login',[LoginController::class,'index']);
-Route::post('login',[LoginController::class,'login'])->name('login');
+Route::get('/login',[UserController::class,'signin']);
+Route::post('login',[UserController::class,'login'])->name('login');
 
-Route::get('/signup',[signupController::class,'index']);
-Route::post('signup',[signupController::class,'create'])->name('signup');
+Route::get('/signup',[UserController::class,'signup']);
+Route::post('signup',[UserController::class,'create'])->name('signup');
 
 
 Route::get('/contact',[contactController::class,'index']);
