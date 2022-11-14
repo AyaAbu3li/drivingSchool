@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('signName');
             $table->string('img');
             $table->timestamps();
-            $table->foreign('sectionID')->references('id')->on('category')->onDelete('cascade');
+            $table->foreign('sectionID')->references('id')->on('signs_category')->onDelete('cascade');
 
         });
     }

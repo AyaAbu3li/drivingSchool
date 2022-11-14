@@ -25,6 +25,11 @@ class LoginController extends Controller
     
     public function login(Request $request)
     {
+        request()->validate([
+            'email' => 'required',
+            'password' => 'required',
+            ]);
+            
         if(empty($request->input('email')) 
          or (empty($request->input('password')))) {
             return back()->with('message_not_sent','inputs are empty!');

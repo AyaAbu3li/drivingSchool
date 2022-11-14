@@ -24,8 +24,7 @@ return new class extends Migration
             $table->string('answer4');
             $table->string('correctAnswer');
             $table->timestamps();
-            $table->foreign('examID')->references('id')->on('examscategory');
-
+            $table->foreign('examID')->references('id')->on('exams_category');
         });
     }
 

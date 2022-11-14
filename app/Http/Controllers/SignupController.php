@@ -30,6 +30,11 @@ class SignupController extends Controller
      */
     public function create(Request $request)
     {
+        request()->validate([
+            'name' => 'required',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:6',
+            ]);
         if(empty($request->input('email')) 
         or (empty($request->input('password'))) 
         or (empty($request->input('password1'))) 

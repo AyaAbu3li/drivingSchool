@@ -37,4 +37,4 @@
     </div>
 </nav>
 <!-- Navbar End -->
-@yield('content')
+{{-- @yield('content') --}}
