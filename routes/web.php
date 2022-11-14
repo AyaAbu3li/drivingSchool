@@ -60,7 +60,7 @@ Route::post('signup',[UserController::class,'create'])->name('signup');
 Route::get('/contact',[UserController::class,'contact']);
 Route::post('contact',[UserController::class,'sendEmail'])->name('contact');
 
-Route::get('logout', [LogoutController::class, 'logout'])->name('logout');
+Route::get('logout', [UserController::class, 'logout'])->name('logout');
 
 // Fallback Route
 Route::fallback(FallbackController::class);

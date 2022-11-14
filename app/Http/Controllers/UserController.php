@@ -123,4 +123,9 @@ class LoginController extends Controller
                 return back()->with('message_not_sent','Your Message can not be send!');
             }
     }
+
+    public function logout() {
+        Session::flush();  
+        return view('userout/welcome');
+    }
 }
