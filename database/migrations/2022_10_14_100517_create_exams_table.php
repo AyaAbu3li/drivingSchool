@@ -15,6 +15,7 @@ return new class extends Migration
     {
         Schema::create('exams', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('examID');
             $table->string('examType');
             $table->string('question');
             $table->string('answer1');
@@ -23,8 +24,7 @@ return new class extends Migration
             $table->string('answer4');
             $table->string('correctAnswer');
             $table->timestamps();
-
-            $table->foreign('examType')->references('examType')->on('exams_category');
+            $table->foreign('examID')->references('id')->on('examscategory');
 
         });
     }
