@@ -41,9 +41,6 @@
                                 <button class="btn btn-primary w-100 py-3" type="submit">Login</button>
                             </div>
                             <div class="col-12">
-                                <a href="{{ url('/forgetPassword1') }}" class="mb-4" style="text-decoration: none;">Forget password?</a>
-                            </div>
-                            <div class="col-12">
                                 <h5 class="mb-4">Don't have an account?
                                     <a href="{{ url('/signup') }}" class="mb-4" style="text-decoration: none;">Create account.</a></h5>
                             </div>
