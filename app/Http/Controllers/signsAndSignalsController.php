@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use App\Models\signsAndSignals;
 
 
-class signsAndSignalsController extends Controller
+class SignsAndSignalsController extends Controller
 {
     /**
      * Display a listing of the resource.

@@ -3,7 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FallbackController;
-use App\Http\Controllers\signsAndSignalsController;
+use App\Http\Controllers\SignsAndSignalsController;
 use App\Http\Controllers\ExamsController;
 
 Route::get('/', function () {
@@ -13,7 +13,7 @@ Route::get('/', function () {
 Route::get('/in',[UserController::class,'protect']);
 
 
-Route::get('/signsAndSignals',[signsAndSignalsController::class,'index']);
+Route::get('/signsAndSignals',[SignsAndSignalsController::class,'index']);
 Route::get('/exams',[ExamsController::class,'index']);
 Route::post('exam',[ExamsController::class,'exam'])->name('exam');
 
