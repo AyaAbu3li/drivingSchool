@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FallbackController;
-use App\Http\Controllers\forgetPasswordController;
 use App\Http\Controllers\signsAndSignalsController;
 use App\Http\Controllers\ExamsController;
 
