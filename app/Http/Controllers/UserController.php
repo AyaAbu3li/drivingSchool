@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Mail;
 use App\Mail\contactMail;
 use Exception;
-class LoginController extends Controller
+class UserController extends Controller
 {
 
     public function signin()
@@ -39,7 +39,7 @@ class LoginController extends Controller
         if ( Hash::check($request->password, $user->password)) {
             if($user->role === 0)
             return view('in/home');
-            else return view('in/roadsafety');
+            // else return view('in/roadsafety');
             
         }else return back()->with('message_not_sent','The password is not correct');
        
