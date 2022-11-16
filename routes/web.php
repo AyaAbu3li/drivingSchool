@@ -3,7 +3,6 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\FallbackController;
-use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\forgetPasswordController;
 use App\Http\Controllers\signsAndSignalsController;
 use App\Http\Controllers\ExamsController;
@@ -12,26 +11,28 @@ Route::get('/', function () {
     return view('userout/welcome');
 });
 
-Route::get('/in', function () {
-    return view('in/home');
-});
+Route::get('/in',[UserController::class,'protect']);
 
 Route::get('/signsAndSignals',[signsAndSignalsController::class,'index']);
 Route::get('/exams',[ExamsController::class,'index']);
 Route::post('exam',[ExamsController::class,'exam'])->name('exam');
 
-// Route::get('/exam',[ExamsController::class,'exam']);
-
-
 
 Route::get('/Book', function () {
+    if(session()->get('user_id')== ""){
+        return redirect('/login');
+    } else{
     return view('in/Book');
+    }
 });
 
 Route::get('/roadsafety', function () {
-    return view('in/roadsafety');
+    if(session()->get('user_id')== ""){
+        return redirect('/login');
+    } else{
+        return view('in/roadsafety');
+    }
 });
-
 
 
 Route::get('/forgetPassword1',[forgetPasswordController::class,'index']);

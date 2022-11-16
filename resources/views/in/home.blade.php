@@ -12,6 +12,7 @@
                             <div class="row justify-content-center">
                                 <div class="col-lg-7">
                                     <h1 class="display-2 text-light mb-5 animated slideInDown">We get you to your goal faster</h1>
+                               <h1> welcome {{ $username }}</h1>
                                 </div>
                             </div>
                         </div>

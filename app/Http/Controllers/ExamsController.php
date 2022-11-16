@@ -11,7 +11,11 @@ class ExamsController extends Controller
     public function index()
     {
         $examType = DB::select('select examType from exams_category');
+        if(session()->get('user_id')== ""){
+            return redirect('/login');
+        } else{
         return view('in/exams',['examType'=> $examType]);
+        }
     }
 
     public function exam(Request $request) // $request->examType
@@ -20,9 +24,10 @@ class ExamsController extends Controller
                 'select * from exams where examType = :id',
                 ['id' => $request->examType]
             );
-            // dd($results);
-            
+            if(session()->get('user_id')== ""){
+                return redirect('/login');
+            } else{
         return view('in/exams2',['data'=> $results,'examType'=> $request->examType]);
-
+            }
     }
 }

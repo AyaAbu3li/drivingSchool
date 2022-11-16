@@ -37,14 +37,30 @@ class UserController extends Controller
         }
 
         if ( Hash::check($request->password, $user->password)) {
-            if($user->role === 0)
-            return view('in/home');
-            // else return view('in/roadsafety');
+            if($user->role === 0){
+                    $request->session()->put('user_id', $user->id);
+                    $request->session()->put('user_name', $user->name);
+                    return redirect('/in');
+            }
             
         }else return back()->with('message_not_sent','The password is not correct');
        
     }
-
+    public function protect(Request $r)
+    {
+        if($r->session()->get('user_id')== ""){
+            return redirect('/login');
+        } else{
+        $username = $r->session()->get('user_name');
+        $capsule = array('username' => $username);
+        return view('in/home')->with($capsule);
+        }
+    }
+    public function logout(Request $r) {
+        $r->session()->forget('user_id');
+        $r->session()->forget('user_name');
+        return view('userout/login');
+    }
     public function signup()
     {
         return view('userout/signup');
@@ -76,17 +92,24 @@ class UserController extends Controller
             'password' => $request->password,
             ];
            
-        $check = $this->createUser($data);
-        return back()->with('message_sent','Great! You have Successfully SignUp');
+        // $check = $this->createUser($data);
+        User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => Hash::make($data['password'])
+          ]);
+        return redirect('/login')->with('message_sent','Great! Account created successfully, please login');
+        // return back()->with('message_sent','Great! You have Successfully SignUp');
+
     }
-    public function createUser(array $data)
-    {
-      return User::create([
-        'name' => $data['name'],
-        'email' => $data['email'],
-        'password' => Hash::make($data['password'])
-      ]);
-    }
+    // public function createUser(array $data)
+    // {
+    //   return User::create([
+    //     'name' => $data['name'],
+    //     'email' => $data['email'],
+    //     'password' => Hash::make($data['password'])
+    //   ]);
+    // }
 
     public function about()
     {
@@ -124,8 +147,5 @@ class UserController extends Controller
             }
     }
 
-    public function logout() {
-        Session::flush();  
-        return view('userout/welcome');
-    }
+    
 }

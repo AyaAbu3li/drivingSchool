@@ -15,7 +15,7 @@ class signsAndSignalsController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $r)
     {
         $sectionName = DB::select('select sectionName from signs_category');
 
@@ -27,11 +27,14 @@ class signsAndSignalsController extends Controller
             );
            $data[] = (array)$results;  
         }
-
+        if($r->session()->get('user_id')== ""){
+            return redirect('/login');
+        } else{
+       
         return view('in/signsAndSignals',['sectionName'=> $sectionName
         ,'data'=> $data
         ]);
-
+    }
     }
 
     /**
