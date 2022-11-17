@@ -19,7 +19,6 @@
                         {{ Session :: get('message_not_sent') }}
                         </div>
                 @endif
-                
                 <form method="POST" action="{{ route('login') }}">
                     @csrf
                         <div class="row g-3">

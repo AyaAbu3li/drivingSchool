@@ -20,12 +20,7 @@ class UserController extends Controller
     }
     
     public function login(Request $request)
-    {
-        request()->validate([
-            'email' => 'required',
-            'password' => 'required',
-            ]);
-            
+    {  
         if(empty($request->input('email')) 
          or (empty($request->input('password')))) {
             return back()->with('message_not_sent','inputs are empty!');
@@ -68,11 +63,17 @@ class UserController extends Controller
 
     public function create(Request $request)
     {
-        request()->validate([
+        $validatedData = $request->validate([
             'name' => 'required',
-            'email' => 'required|email|unique:users',
-            'password' => 'required|min:6',
-            ]);
+            'password' => 'required|min:5',
+            'email' => 'required|email|unique:users'
+        ], [
+            'name.required' => 'Name field is required.',
+            'password.required' => 'Password field is required.',
+            'email.required' => 'Email field is required.',
+            'email.email' => 'Email field must be email address.'
+        ]);
+
         if(empty($request->input('email')) 
         or (empty($request->input('password'))) 
         or (empty($request->input('password1'))) 
