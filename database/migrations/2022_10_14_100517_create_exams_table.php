@@ -18,6 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('examID');
             $table->string('examType');
             $table->string('question');
+            $table->string('img');
             $table->string('answer1');
             $table->string('answer2');
             $table->string('answer3');

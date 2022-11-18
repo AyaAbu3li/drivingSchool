@@ -21,29 +21,31 @@
 <div class="container-xxl py-6">
     <div class="container">
         <div class="text-center mx-auto mb-5 wow fadeInUp" style="max-width: 500px;">
-                <div class="row row-cols-1 text-center">
-                     <h4 class="text-primary mb-2">{{ $ex->question }}
-                        <br><br></h4> 
-                        <button type="button" class="btn btn-primary exbutton" 
-                        id="{{ $ex->answer1 }}" onclick="check('{{ $ex->answer1 }}','{{ $ex->correctAnswer }}',
-                        '{{ $ex->answer2 }}','{{ $ex->answer3 }}','{{ $ex->answer4 }}')">
-                           {{ $ex->answer1 }}
-                       </button>
-                        <button type="button" class="btn btn-primary exbutton"
-                        id="{{ $ex->answer2 }}" onclick="check('{{ $ex->answer2 }}','{{ $ex->correctAnswer }}',
-                        '{{ $ex->answer1 }}','{{ $ex->answer3 }}','{{ $ex->answer4 }}')">
-                           {{ $ex->answer2 }}
-                       </button>
-                        <button type="button" class="btn btn-primary exbutton"
-                        id="{{ $ex->answer3 }}" onclick="check('{{ $ex->answer3 }}','{{ $ex->correctAnswer }}',
-                        '{{ $ex->answer1 }}','{{ $ex->answer2 }}','{{ $ex->answer4 }}')">
-                           {{ $ex->answer3 }}
-                       </button>
-                       <button type="button" class="btn btn-primary exbutton"
-                       id="{{ $ex->answer4 }}" onclick="check('{{ $ex->answer4 }}','{{ $ex->correctAnswer }}',
-                       '{{ $ex->answer1 }}','{{ $ex->answer2 }}','{{ $ex->answer3 }}')">
-                           {{ $ex->answer4 }}
-                       </button>     
+            <h4 class="text-primary mb-2">{{ $ex->question }} </h4> 
+                <img class="img-fluid" style="width: auto; max-height: 200px;"
+                src="{{  asset($ex->img)  }}" alt="">
+                 <br><br>
+            <div class="row row-cols-1 text-center">
+                    <button type="button" class="btn btn-primary exbutton" 
+                    id="{{ $ex->answer1 }}" onclick="check('{{ $ex->answer1 }}','{{ $ex->correctAnswer }}',
+                    '{{ $ex->answer2 }}','{{ $ex->answer3 }}','{{ $ex->answer4 }}')">
+                        {{ $ex->answer1 }}
+                    </button>
+                    <button type="button" class="btn btn-primary exbutton"
+                    id="{{ $ex->answer2 }}" onclick="check('{{ $ex->answer2 }}','{{ $ex->correctAnswer }}',
+                    '{{ $ex->answer1 }}','{{ $ex->answer3 }}','{{ $ex->answer4 }}')">
+                        {{ $ex->answer2 }}
+                    </button>
+                    <button type="button" class="btn btn-primary exbutton"
+                    id="{{ $ex->answer3 }}" onclick="check('{{ $ex->answer3 }}','{{ $ex->correctAnswer }}',
+                    '{{ $ex->answer1 }}','{{ $ex->answer2 }}','{{ $ex->answer4 }}')">
+                        {{ $ex->answer3 }}
+                    </button>
+                    <button type="button" class="btn btn-primary exbutton"
+                    id="{{ $ex->answer4 }}" onclick="check('{{ $ex->answer4 }}','{{ $ex->correctAnswer }}',
+                    '{{ $ex->answer1 }}','{{ $ex->answer2 }}','{{ $ex->answer3 }}')">
+                        {{ $ex->answer4 }}
+                    </button>     
             </div>
         </div>      
     </div>
