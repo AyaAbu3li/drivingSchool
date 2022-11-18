@@ -48,7 +48,7 @@
                     @if ($signn->sectionName != $Name->sectionName) @break @endif
                     <div class="team-item position-relative" id="id">
                         <div class="position-relative">
-                            <img class="img-fluid rounded-start" src="../images/SignAndSignal5.jpg" alt=""
+                            <img class="img-fluid rounded-start" src="{{  asset($signn->img)  }}" alt=""
                                  style="  width: auto;   max-height: 120px;">
                         </div>
                         <div class="bg-light text-center p-4">

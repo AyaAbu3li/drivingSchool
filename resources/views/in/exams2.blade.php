@@ -49,7 +49,6 @@
     </div>
 </div>
 <script>
-    // const cars = new Array();
      function hi(){
         window.alert(cars);
      }
