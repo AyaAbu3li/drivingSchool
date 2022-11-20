@@ -17,6 +17,7 @@
     <script>
         const cars = new Array();
     </script>
+@if(count($data)>0){
 @foreach ($data as $ex)
 <div class="container-xxl py-6">
     <div class="container">
@@ -110,5 +111,18 @@ function showElem() {
     document.getElementById("demo").innerHTML = cars.length+" questions you answered correctly";
   }
 </script>
-
+}
+@else {
+    <div class="container-xxl py-6">
+        <div class="container">
+            <div class="text-center mx-auto mb-5 wow fadeInUp" style="max-width: 500px;">
+                <h4 class="text-primary mb-2">No questions at the moment, come back later</h4> 
+                <br>
+                <h5><a class="col btn btn-primary w-100 py-3" href="{{ url('/exams') }}">
+                    Back to Exams</a></h5>
+            </div>
+        </div>
+    </div>
+}
+@endif
 @include("app.footer")
